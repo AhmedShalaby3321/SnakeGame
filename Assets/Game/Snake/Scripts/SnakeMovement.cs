@@ -11,7 +11,7 @@ public class SnakeMovement : MonoBehaviour
     [SerializeField] int maxRotation = 45;
     public void Move()
     {
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, 1);
         Quaternion target = Quaternion.Euler(0, Input.GetAxis("Horizontal") * maxRotation, 0);
         fakeHead.rotation = Quaternion.RotateTowards(fakeHead.rotation, target, rotationSpeed * Time.deltaTime);
         transform.position += moveDir * snakeSpeed * Time.deltaTime;
