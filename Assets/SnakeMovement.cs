@@ -15,7 +15,6 @@ public class SnakeMovement : MonoBehaviour
         Quaternion target = Quaternion.Euler(0, Input.GetAxis("Horizontal") * maxRotation, 0);
         fakeHead.rotation = Quaternion.RotateTowards(fakeHead.rotation, target, rotationSpeed * Time.deltaTime);
         transform.position += moveDir * snakeSpeed * Time.deltaTime;
-
     }
     // Update is called once per frame
     void Update()
