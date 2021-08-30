@@ -12,9 +12,7 @@ public class Tile : MonoBehaviour
 
     private void Awake()
     {
-        length = mesh.bounds.size.z;
-        Debug.Log(mesh.bounds.size.z);
-        Debug.Log(mesh.bounds.size.x);
+        length = mesh.bounds.size.z * 3;
         // Mathf.Abs((startPoint.position - endPoint.position).magnitude);
     }
 

@@ -10,7 +10,6 @@ public class Game_Manager : MonoBehaviour
     private void Start()
     {
         GameOverUI.SetActive(false);
-        
     }
     private void Update()
     {
@@ -25,7 +24,6 @@ public class Game_Manager : MonoBehaviour
         if (!gameEnded)
         {
             gameEnded = true;
-            Debug.Log("GAMEEE OVERRRRR !!!!");
             rb.velocity = Vector3.zero;
             GameOverUI.SetActive(true);
         }
@@ -33,12 +31,8 @@ public class Game_Manager : MonoBehaviour
 
     void Restart()
     {
-        Debug.Log("Restaarrttt !!!!");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Move_Snake.ForwardSpeed = 7f;
-        Move_Snake.SidesSpeed = 5f;
-        Tree_Friend.lives = 5;
-        Tree_Friend.score = 0;
+        SnakeBehaviour.lives = 5;
+        SnakeBehaviour.score = 0;
         SceneManager.LoadScene("SnakeGame");
     }
 
