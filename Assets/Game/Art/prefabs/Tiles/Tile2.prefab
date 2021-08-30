@@ -2734,6 +2734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6957486345973073306}
   endPoint: {fileID: 6186565070653015301}
+  mesh: {fileID: 1533893157490870939}
   length: 0
 --- !u!1 &182657549008740972
 GameObject:
@@ -5859,6 +5860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622869cfb575b274a92a7aeb63e79596, type: 3}
+--- !u!23 &1533893157490870939 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 622869cfb575b274a92a7aeb63e79596, type: 3}
+  m_PrefabInstance: {fileID: 182657550096258591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &360947056740315636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 622869cfb575b274a92a7aeb63e79596, type: 3}

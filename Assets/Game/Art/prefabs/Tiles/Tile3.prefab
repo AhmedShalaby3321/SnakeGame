@@ -3706,6 +3706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 329668126920802146}
   endPoint: {fileID: 3586514250377871357}
+  mesh: {fileID: 4138982831176831635}
   length: 0
 --- !u!1 &6176357799308650159
 GameObject:
@@ -5544,9 +5545,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feb096ee2a9ab0840a129d35e9651de4, type: 3}
---- !u!4 &1263307262133092943 stripped
+--- !u!4 &3586514250377871357 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1718934371996445861, guid: feb096ee2a9ab0840a129d35e9651de4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4005689375734485271, guid: feb096ee2a9ab0840a129d35e9651de4, type: 3}
   m_PrefabInstance: {fileID: 455649673493081834}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &329668126920802146 stripped
@@ -5554,9 +5555,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 198718709004636552, guid: feb096ee2a9ab0840a129d35e9651de4, type: 3}
   m_PrefabInstance: {fileID: 455649673493081834}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3586514250377871357 stripped
+--- !u!4 &1263307262133092943 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4005689375734485271, guid: feb096ee2a9ab0840a129d35e9651de4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1718934371996445861, guid: feb096ee2a9ab0840a129d35e9651de4, type: 3}
   m_PrefabInstance: {fileID: 455649673493081834}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &871379699215919644
@@ -7150,6 +7151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bdc0b2d19984584cbab9c93dc89d928, type: 3}
+--- !u!23 &4138982831176831635 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7838033861884431361, guid: 2bdc0b2d19984584cbab9c93dc89d928, type: 3}
+  m_PrefabInstance: {fileID: 6176357798556114578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5925731936178534777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2bdc0b2d19984584cbab9c93dc89d928, type: 3}
