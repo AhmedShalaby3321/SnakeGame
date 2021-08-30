@@ -7,11 +7,14 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] Transform startPoint;
     [SerializeField] Transform endPoint;
+    [SerializeField] MeshRenderer mesh;
     [HideInInspector] public float length;
 
     private void Awake()
     {
-        length = Mathf.Abs((startPoint.position - endPoint.position).magnitude);
+        length = mesh.bounds.size.y;
+        Debug.Log(length);
+        // Mathf.Abs((startPoint.position - endPoint.position).magnitude);
     }
 
     private void OnTriggerEnter(Collider other)

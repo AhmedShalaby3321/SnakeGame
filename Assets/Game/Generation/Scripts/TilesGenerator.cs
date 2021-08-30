@@ -36,9 +36,9 @@ public class TilesGenerator : MonoBehaviour
 
         Tile RndTileToInstantiate = TilesPrefabs[randomIndex];
 
-        float displacment = prevTile.length / 2 + RndTileToInstantiate.length / 2;
+        float displacment = prevTile.length /2 + RndTileToInstantiate.length/2 ;
 
-        currentTile = Instantiate(RndTileToInstantiate, prevTile.transform.position + (Vector3.forward * displacment*2), Quaternion.identity, this.transform);
+        currentTile = Instantiate(RndTileToInstantiate, prevTile.transform.localPosition + (Vector3.forward * displacment*2), RndTileToInstantiate.transform.rotation, this.transform);
 
         if (TilesInThescene.Count >= maxNumberOfTileInTheScene)
         {

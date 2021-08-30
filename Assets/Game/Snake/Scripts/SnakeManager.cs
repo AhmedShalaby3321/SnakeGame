@@ -33,7 +33,7 @@ public class SnakeManager : MonoBehaviour
     }
     public void RemoveBodyPart()
     {
-        Debug.Log(bodyParts.Count);
+        //Debug.Log(bodyParts.Count);
         if (bodyParts.Count > minSnakeLength)
         {
             Destroy(bodyParts[bodyParts.Count - 1].gameObject);
