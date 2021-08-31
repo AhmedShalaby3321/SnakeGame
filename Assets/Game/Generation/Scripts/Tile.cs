@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Tile : MonoBehaviour
 {
-    [SerializeField] Transform startPoint;
-    [SerializeField] Transform endPoint;
+    //[SerializeField] Transform startPoint;
+    //[SerializeField] Transform endPoint;
     [SerializeField] MeshRenderer mesh;
     [HideInInspector] public float length;
 
