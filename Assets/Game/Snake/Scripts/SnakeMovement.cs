@@ -5,19 +5,25 @@ using UnityEngine;
 public class SnakeMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool canHaveInputs;
     [SerializeField] Transform fakeHead;
     [SerializeField] float snakeSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] int maxRotation = 45;
+    public Vector3 movementDir = Vector3.zero;
+    public int rotationDir;
     public void Move()
     {
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, 1);
-        Quaternion target = Quaternion.Euler(0, Input.GetAxis("Horizontal") * maxRotation, 0);
+        if (!canHaveInputs)
+        {
+            rotationDir = 0;
+            movementDir = Vector3.zero;
+        }
+        Quaternion target = Quaternion.Euler(0, rotationDir * maxRotation, 0);
         fakeHead.rotation = Quaternion.RotateTowards(fakeHead.rotation, target, rotationSpeed * Time.deltaTime);
-        transform.position += moveDir * snakeSpeed * Time.deltaTime;
+        transform.Translate((transform.forward + movementDir) * snakeSpeed * Time.deltaTime);
     }
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Move();
     }
