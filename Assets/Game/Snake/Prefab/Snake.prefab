@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2710471115958811681}
   - component: {fileID: 178297180878964971}
   - component: {fileID: 1835652423672211769}
+  - component: {fileID: 5841842481896860427}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -183,6 +184,20 @@ MonoBehaviour:
   endPoint: {fileID: 4241482644572788179}
   oldPos: {x: 0, y: 0, z: 0}
   newPos: {x: 0, y: 0, z: 0}
+--- !u!114 &5841842481896860427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835652423672211774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65983250c1090c46b06a9a6a6e18d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMesh: {fileID: 178297180878964971}
+  SkeletonType: 1
 --- !u!1 &3969784156899147919
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70c3becaf10f2d4f939d27f64be022f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors: {fileID: 11400000, guid: 5c8212577bb534f488f56fb3f3bbb066, type: 2}
   bodyPrefab: {fileID: 7436137069762168527, guid: 078a9715bc564fe4b9137dc2c164a22f, type: 3}
   bodyParts:
   - {fileID: 3969784156899147918}
@@ -532,6 +548,10 @@ MonoBehaviour:
   maxSnakeLength: 10
   minSnakeLength: 2
   dynamicBone: {fileID: 4241482644705081223}
+  HeadMesh: {fileID: 0}
+  TailMesh: {fileID: 0}
+  BodyMesh: {fileID: 0}
+  currentSnakeColor: 0
 --- !u!114 &4241482644705081217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,10 +564,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b46c348819512841ae1c6e8571fcf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canHaveInputs: 0
   fakeHead: {fileID: 555674103371627208}
   snakeSpeed: 2
   rotationSpeed: 200
   maxRotation: 30
+  movementDir: {x: 0, y: 0, z: 0}
+  rotationDir: 0
 --- !u!1 &4241482644923417356
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +614,8 @@ GameObject:
   - component: {fileID: 3529308987131204908}
   - component: {fileID: 2651700019753040050}
   - component: {fileID: 4826123564588971836}
+  - component: {fileID: 4902302286351074803}
+  - component: {fileID: 7445018576952732987}
   m_Layer: 0
   m_Name: HeadFake
   m_TagString: Player
@@ -690,6 +715,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4902302286351074803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265654093488114208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65983250c1090c46b06a9a6a6e18d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMesh: {fileID: 3529308987131204908}
+  SkeletonType: 0
+--- !u!114 &7445018576952732987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265654093488114208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd22d5ac39dda64f80f925dd1bfa339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skmrd: {fileID: 0}
+  snake: {fileID: 0}
+  game_Manager: {fileID: 0}
 --- !u!1 &8674206244737650182
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +755,7 @@ GameObject:
   - component: {fileID: 8298770941033338044}
   - component: {fileID: 4937338990000823065}
   - component: {fileID: 7160728832343781331}
+  - component: {fileID: 1512262880735525504}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -771,3 +826,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1512262880735525504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674206244737650182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65983250c1090c46b06a9a6a6e18d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMesh: {fileID: 7160728832343781331}
+  SkeletonType: 2

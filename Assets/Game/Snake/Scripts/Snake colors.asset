@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c244f6fa5beaf49acc5ff96838b155, type: 3}
+  m_Name: Snake colors
+  m_EditorClassIdentifier: 
+  Cyan:
+  - {r: 0, g: 0.7372549, b: 0.7019608, a: 1}
+  - {r: 0, g: 0.7372549, b: 0.7019608, a: 1}
+  - {r: 0, g: 0.7372549, b: 0.7019608, a: 1}
+  Green:
+  - {r: 0, g: 0.69803923, b: 0.2509804, a: 1}
+  - {r: 0.003921569, g: 0.6039216, b: 0.21960786, a: 1}
+  - {r: 0, g: 0.69803923, b: 0.2509804, a: 1}
+  Purple:
+  - {r: 0.7843138, g: 0.14509805, b: 0.59607846, a: 1}
+  - {r: 0.7843138, g: 0.14509805, b: 0.59607846, a: 1}
+  - {r: 0.7843138, g: 0.14509805, b: 0.59607846, a: 1}
+  Yellow:
+  - {r: 0.9058824, g: 0.7843138, b: 0.23529413, a: 1}
+  - {r: 0.9058824, g: 0.7843138, b: 0.23529413, a: 1}
+  - {r: 0.9058824, g: 0.7843138, b: 0.23529413, a: 1}

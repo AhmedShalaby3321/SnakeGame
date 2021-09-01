@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 6617613581413684183}
   - component: {fileID: 8949368466987968285}
   - component: {fileID: 7436137069762168527}
+  - component: {fileID: 7033877218703255408}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -160,3 +161,18 @@ MonoBehaviour:
   endPoint: {fileID: 4942487961081362981}
   oldPos: {x: 0, y: 0, z: 0}
   newPos: {x: 0, y: 0, z: 0}
+--- !u!114 &7033877218703255408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436137069762168520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65983250c1090c46b06a9a6a6e18d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snake: {fileID: 0}
+  myMesh: {fileID: 8949368466987968285}
+  SkeletonType: 1
