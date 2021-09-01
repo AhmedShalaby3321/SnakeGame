@@ -1345,7 +1345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 706098886}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: xend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,7 +1429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046808795}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: zend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088761627}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: xstart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1661,12 +1661,12 @@ MonoBehaviour:
   fruitPrefab: {fileID: 8401133804967997391, guid: 0456c6c1891a95a46a3157f7f6befcf9, type: 3}
   parent: {fileID: 1647915845}
   XNumber: 5
-  ZNumber: 20
+  ZNumber: 10
   RandomPositions: []
   ZstartPoint: {fileID: 1347547314}
   ZendPoint: {fileID: 1046808795}
-  XstartPoint: {fileID: 706098886}
-  XendPoint: {fileID: 1088761627}
+  XstartPoint: {fileID: 1088761627}
+  XendPoint: {fileID: 706098886}
 --- !u!4 &1332292163
 Transform:
   m_ObjectHideFlags: 0
@@ -1705,7 +1705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347547314}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: zstart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

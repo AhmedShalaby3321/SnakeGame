@@ -21,12 +21,11 @@ public class FruitGenerator : MonoBehaviour
     bool firstTime = true;
     void Start()
     {
-        GenerateFruits(ZstartPoint.localPosition.x, ZendPoint.localPosition.z, XstartPoint.localPosition.x, XendPoint.localPosition.z);
+        GenerateFruits(ZstartPoint.position.z, ZendPoint.position.z, XstartPoint.position.x, XendPoint.position.x);
         foreach (var pos in RandomPositions)
         {
-            bool canGenerate = new bool[] { true, false }[Random.Range(0, 2)];
-            if (canGenerate)
-            Instantiate(fruitPrefab, pos, fruitPrefab.transform.rotation, this.transform);
+            if (new bool[] { true, false }[Random.Range(0, 2)])  //<< genius 
+                Instantiate(fruitPrefab, pos , fruitPrefab.transform.rotation, this.transform);
         }
     }
 
@@ -43,7 +42,7 @@ public class FruitGenerator : MonoBehaviour
 
         
 
-        Xpositions = GenerateRandomPointsInDirection(XNumber,XstartPoint, XendPoint, Xpositions);
+        Xpositions = GenerateRandomPointsInDirection(XNumber,XstartPoint , XendPoint, Xpositions);
 
         Zpositions = GenerateRandomPointsInDirection(ZNumber,ZstartPoint, ZendPoint, Zpositions);
 
