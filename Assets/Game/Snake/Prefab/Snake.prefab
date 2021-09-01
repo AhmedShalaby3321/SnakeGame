@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 4241482644705081223}
   - component: {fileID: 4241482644705081222}
   - component: {fileID: 4241482644705081217}
+  - component: {fileID: 1800710373068876661}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Untagged
@@ -571,6 +572,21 @@ MonoBehaviour:
   maxRotation: 30
   movementDir: {x: 0, y: 0, z: 0}
   rotationDir: 0
+--- !u!114 &1800710373068876661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241482644705081221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9522502d7b2a1c74c8aa25c1b96a24ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snakeMovement: {fileID: 4241482644705081217}
+  detectSwipeAfterRelease: 0
+  SWIPE_THRESHOLD: 20
 --- !u!1 &4241482644923417356
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,9 +757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd22d5ac39dda64f80f925dd1bfa339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skmrd: {fileID: 0}
-  snake: {fileID: 0}
-  game_Manager: {fileID: 0}
 --- !u!1 &8674206244737650182
 GameObject:
   m_ObjectHideFlags: 0

@@ -691,6 +691,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1686736717, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4241482644705081217, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
       propertyPath: snakeSpeed
       value: 2
@@ -933,7 +937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2058261023
 MonoBehaviour:
   m_ObjectHideFlags: 0

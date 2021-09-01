@@ -5,12 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Tile : MonoBehaviour
 {
-    [SerializeField] Transform ZstartPoint;
-    [SerializeField] Transform ZendPoint;
-
-    [SerializeField] Transform XstartPoint;
-    [SerializeField] Transform XendPoint;
-
+    [SerializeField] public Transform ZstartPoint;
+    [SerializeField] public Transform ZendPoint;
+    [SerializeField] public Transform XstartPoint;
+    [SerializeField] public Transform XendPoint;
+    public Transform fruitParent;
     [SerializeField] MeshRenderer mesh;
     [HideInInspector] public float length;
 

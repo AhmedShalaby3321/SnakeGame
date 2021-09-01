@@ -8,25 +8,20 @@ public class FruitGenerator : MonoBehaviour
     [SerializeField] Transform parent;
     public int XNumber;
     public int ZNumber;
+    public float XOffset;
+    public float ZOffset;
+
     public List<Vector3> RandomPositions = new List<Vector3>();
-
-
-
-    [SerializeField] Transform ZstartPoint;
-    [SerializeField] Transform ZendPoint;
-
-    [SerializeField] Transform XstartPoint;
-    [SerializeField] Transform XendPoint;
-
-    bool firstTime = true;
+   
+    public static FruitGenerator Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
-        GenerateFruits(ZstartPoint.position.z, ZendPoint.position.z, XstartPoint.position.x, XendPoint.position.x);
-        foreach (var pos in RandomPositions)
-        {
-            if (new bool[] { true, false }[Random.Range(0, 2)])  //<< genius 
-                Instantiate(fruitPrefab, pos , fruitPrefab.transform.rotation, this.transform);
-        }
+        //GenerateFruits(ZstartPoint.position.z, ZendPoint.position.z, XstartPoint.position.x, XendPoint.position.x);
+       
     }
 
     void Update()
@@ -35,16 +30,17 @@ public class FruitGenerator : MonoBehaviour
     }
 
 
-    public void GenerateFruits(float ZstartPoint, float ZendPoint, float XstartPoint, float XendPoint)
+    public void GenerateFruits(float ZstartPoint, float ZendPoint, float XstartPoint, float XendPoint, Transform parent)
     {
+        RandomPositions.Clear();
         List<float> Xpositions = new List<float>();
         List<float> Zpositions = new List<float>();
 
         
 
-        Xpositions = GenerateRandomPointsInDirection(XNumber,XstartPoint , XendPoint, Xpositions);
+        Xpositions = GenerateRandomPointsInDirection(XNumber,XstartPoint , XendPoint, Xpositions, XOffset);
 
-        Zpositions = GenerateRandomPointsInDirection(ZNumber,ZstartPoint, ZendPoint, Zpositions);
+        Zpositions = GenerateRandomPointsInDirection(ZNumber,ZstartPoint, ZendPoint, Zpositions, ZOffset);
 
         for (int i = 0; i < Xpositions.Count; i++)
         {
@@ -54,16 +50,21 @@ public class FruitGenerator : MonoBehaviour
             }
         }
 
+        foreach (var pos in RandomPositions)
+        {
+            if (new bool[] { true, false }[Random.Range(0, 2)])  //<< genius 
+                Instantiate(fruitPrefab, pos, fruitPrefab.transform.rotation, parent);
+        }
 
     }
 
-    private List<float> GenerateRandomPointsInDirection(int IterationNum,float DirectionStartPoint, float DirectionEndPoint, List<float> RandomPositions)
+    private List<float> GenerateRandomPointsInDirection(int IterationNum,float DirectionStartPoint, float DirectionEndPoint, List<float> RandomPositions, float offset)
     {
         for (int i = 0; i < IterationNum; i++)
         {
             int randomPos = (int)Random.Range(DirectionStartPoint, DirectionEndPoint);
 
-            if (!RandomPositions.Contains(randomPos))
+            if (!RandomPositions.Contains(randomPos) /*&& !RandomPositions.Contains(randomPos + offset) && !RandomPositions.Contains(randomPos-offset)*/)
                 RandomPositions.Add(randomPos);
         }
         return RandomPositions;

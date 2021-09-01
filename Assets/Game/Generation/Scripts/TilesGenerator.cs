@@ -9,7 +9,7 @@ public class TilesGenerator : MonoBehaviour
     [SerializeField] int maxNumberOfTileInTheScene;
     [HideInInspector] public Tile currentTile;
     [HideInInspector] public List<Tile> TilesInThescene;
-    List<int> takenIndeces;
+    //List<int> takenIndeces;
 
 
     public static TilesGenerator Instance;
@@ -20,33 +20,27 @@ public class TilesGenerator : MonoBehaviour
     }
     private void Start()
     {
-        takenIndeces = new List<int>();
+        //takenIndeces = new List<int>();
         TilesInThescene = new List<Tile>();
         TilesInThescene.Add(prevTile);
     }
     public void InstantiateTile()
     {
 
-        int randomIndex;
-        do
-        {
-            randomIndex = Random.Range(0, TilesPrefabs.Count);
-        } while (takenIndeces.Contains(randomIndex));
-        takenIndeces.Add(randomIndex);
+        //int randomIndex;
+        //do
+        //{
+        //    randomIndex = Random.Range(0, TilesPrefabs.Count);
+        //} while (takenIndeces.Contains(randomIndex));
+        //takenIndeces.Add(randomIndex);
 
-        Tile RndTileToInstantiate = TilesPrefabs[randomIndex];
+        Tile RndTileToInstantiate = TilesPrefabs[0];
 
         float displacment = prevTile.length /2 + RndTileToInstantiate.length/2 ;
 
-        try
-        {
-            currentTile = Instantiate(RndTileToInstantiate, prevTile.transform.localPosition + (Vector3.forward * displacment*2), RndTileToInstantiate.transform.rotation, this.transform);
-        }
-        catch (System.Exception)
-        {
+        currentTile = Instantiate(RndTileToInstantiate, prevTile.transform.localPosition + (Vector3.forward * displacment*2), RndTileToInstantiate.transform.rotation, this.transform);
 
-            throw;
-        }
+        FruitGenerator.Instance.GenerateFruits(currentTile.ZstartPoint.position.z, currentTile.ZendPoint.position.z, currentTile.XstartPoint.position.x, currentTile.XendPoint.position.x,currentTile.fruitParent);
 
         if (TilesInThescene.Count >= maxNumberOfTileInTheScene)
         {
@@ -56,10 +50,10 @@ public class TilesGenerator : MonoBehaviour
         }
         TilesInThescene.Add(currentTile);
 
-        if (takenIndeces.Count == TilesPrefabs.Count)
-        {
-            takenIndeces.Clear();
-        }
+        //if (takenIndeces.Count == TilesPrefabs.Count)
+        //{
+        //    takenIndeces.Clear();
+        //}
 
         prevTile = currentTile;
     }

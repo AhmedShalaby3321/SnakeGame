@@ -30,12 +30,12 @@ public class SnakeBehaviour : MonoBehaviour
             if(SnakeManager.Instance.currentSnakeColor == fruit.currfruitColor)
             {
                 Debug.Log("same color");
-
+                SnakeManager.Instance.AddBodyPart();
             }
             else
             {
                 Debug.Log("different");
-
+                SnakeManager.Instance.RemoveBodyPart();
             }
         }
       

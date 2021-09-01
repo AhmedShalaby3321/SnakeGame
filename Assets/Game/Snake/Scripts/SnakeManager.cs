@@ -23,6 +23,8 @@ public class SnakeManager : MonoBehaviour
     [SerializeField] SkeletonColor TailMesh;
     [SerializeField] SkeletonColor BodyMesh;
 
+    private int snakeLength = 1;
+
     /*[HideInInspector] */public SnakeColors_Enum currentSnakeColor;
 
     public static SnakeManager Instance;
@@ -64,11 +66,13 @@ public class SnakeManager : MonoBehaviour
             bodyParts.RemoveAt(bodyParts.Count - 1);
             SetTailPos();
             dynamicBone.ResetAll();
+            snakeLength--;
         }
     }
 
     public void AddBodyPart()
     {
+        snakeLength++;
         if (bodyParts.Count < maxSnakeLength)
         {
             Skeleton addedBodyPart = (Skeleton)Instantiate(bodyPrefab, bodyParts[bodyParts.Count - 1].endPoint.position, Quaternion.identity, bodyParts[bodyParts.Count - 1].endPoint);
