@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SkeletonColor : MonoBehaviour
 {
-    
     enum skeletonType
     {
         Head,
@@ -17,8 +16,6 @@ public class SkeletonColor : MonoBehaviour
 
     private void Update()
     {
-        
-
         ChangeColor(SnakeManager.Instance.colors.Colors_Dict[SnakeManager.Instance.currentSnakeColor][(int)SkeletonType]);
     }
     public void ChangeColor(Color color)

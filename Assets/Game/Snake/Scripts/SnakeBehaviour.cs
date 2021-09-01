@@ -38,15 +38,7 @@ public class SnakeBehaviour : MonoBehaviour
 
             }
         }
-        //if (other.CompareTag("F_Heart"))
-        //{
-        //    other.GetComponent<Renderer>().enabled = false;
-        //    if (lives < maxLives)
-        //    {
-        //        lives++;
-        //    }
-
-        //}
+      
 
         //if (other.CompareTag("E_Bomb"))
         //{
