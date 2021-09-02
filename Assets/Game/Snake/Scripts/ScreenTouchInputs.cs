@@ -33,32 +33,35 @@ public class ScreenTouchInputs : MonoBehaviour
     void Update()
     {
 
-        foreach (Touch touch in Input.touches)
+        //if (GameManager.Instance.canInput)
         {
-            if (touch.phase == TouchPhase.Began)
+            foreach (Touch touch in Input.touches)
             {
-                fingerUpPos = touch.position;
-                fingerDownPos = touch.position;
-            }
-
-            //Detects Swipe while finger is still moving on screen
-            if (touch.phase == TouchPhase.Moved)
-            {
-                if (!detectSwipeAfterRelease)
+                if (touch.phase == TouchPhase.Began)
                 {
-                    snakeMovement.canHaveInputs = true;
+                    fingerUpPos = touch.position;
                     fingerDownPos = touch.position;
-                    DetectSwipe();
                 }
-            }
 
-            //Detects swipe after finger is released from screen
-            if (touch.phase == TouchPhase.Ended)
-            {
-                fingerDownPos = touch.position;
-                snakeMovement.canHaveInputs = false;
-                //DetectSwipe();
-            }
+                //Detects Swipe while finger is still moving on screen
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    if (!detectSwipeAfterRelease)
+                    {
+                        snakeMovement.canHaveInputs = true;
+                        fingerDownPos = touch.position;
+                        DetectSwipe();
+                    }
+                }
+
+                //Detects swipe after finger is released from screen
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    fingerDownPos = touch.position;
+                    snakeMovement.canHaveInputs = false;
+                    //DetectSwipe();
+                }
+            } 
         }
     }
 

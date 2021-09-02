@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    //[SerializeField] DataToSave data;
     int Score;
     int LifeKeys;
     int Gold;
@@ -18,7 +17,6 @@ public class DataManager : MonoBehaviour
 
     private void Start()
     {
-        //data.Score = 0;
         PlayerPrefs.SetInt("score", 0);
         if(GameManager.Instance.firstTime == true && (!PlayerPrefs.HasKey("first") || PlayerPrefs.GetInt("first") != 10))
         {
@@ -31,12 +29,10 @@ public class DataManager : MonoBehaviour
     }
     public void UpdateData()
     {
-        Score = PlayerPrefs.GetInt("score");// data.Score;
-        LifeKeys = PlayerPrefs.GetInt("life"); //data.lifeKeysNum;
-        UpdateUI();
+        Score = PlayerPrefs.GetInt("score");
+        LifeKeys = PlayerPrefs.GetInt("life"); 
         if(!PlayerPrefs.HasKey("high"))
         {
-            //data.HighScore = Score;
             PlayerPrefs.SetInt("high", Score);
         }
         else
@@ -45,7 +41,7 @@ public class DataManager : MonoBehaviour
             PlayerPrefs.SetInt("high", Score + Gold);
         }
         Gold = PlayerPrefs.GetInt("high");
-        //data.Score = 0;
+        UpdateUI();
     }
     private void UpdateUI()
     {
@@ -53,36 +49,30 @@ public class DataManager : MonoBehaviour
     }
     public void IncrementScore(int additionalScore)
     {
-        //data.Score += additionalScore;
-
         PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + additionalScore);
     }
 
     public void IncrementLifeKeys(int additionalLifeKeys)
     {
-        //data.lifeKeysNum += additionalLifeKeys;
         PlayerPrefs.SetInt("life", PlayerPrefs.GetInt("life") + additionalLifeKeys);
     }
 
     public void SetScore(int score)
     {
-        //data.Score = score;
         PlayerPrefs.SetInt("score", score);
     }
 
     public void SetLifekeys(int lifekeys)
     {
-        //data.lifeKeysNum = lifekeys;
         PlayerPrefs.SetInt("life", lifekeys);
     }
     public int GetLifeKeysNum()
     {
-        return PlayerPrefs.GetInt("life"); //data.lifeKeysNum;
+        return PlayerPrefs.GetInt("life"); 
     }
         
     public void UseLifeKey()
     {
-        //data.lifeKeysNum--;
         PlayerPrefs.SetInt("life", PlayerPrefs.GetInt("life") - 1);
         UpdateUI();
     }

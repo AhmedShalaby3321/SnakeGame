@@ -7,33 +7,36 @@ using MoreMountains.Feedbacks;
 using TMPro;
 public class UIManager : MonoBehaviour
 {
-    [Header("FeedBack")]
+    [Header("Feedback")]
     [SerializeField] MMFeedbacks scoreFeedback;
 
-    [Header("Gameplay")]
+    [Header("Gameplay Screen")]
     [SerializeField] Image gameplayscreen;
     [SerializeField] TextMeshProUGUI ScoreTxt;
-    [SerializeField] TextMeshProUGUI LifeKeysTxt;
-    [SerializeField] public Image PowerUpImage;
-    [SerializeField] public Image PowerUpTimer;
+    //[SerializeField] TextMeshProUGUI LifeKeysTxt;
+    //[SerializeField] public Image PowerUpImage;
+    //[SerializeField] public Image PowerUpTimer;
 
-    //[Header("Start Screen")]
-    //[SerializeField] Text HighScore;
+    [Header("Home Screen")]
+    [SerializeField] Text HighScore;
 
-    [Header("Settings")]
+    [Header("Pause/Settings Screen")]
     [SerializeField] AudioListener AudioListener;
     [SerializeField] Toggle soundToggle;
 
-    [Header("Lose screen")]
+    [Header("Lose Screen")]
     [SerializeField] Image LoseScreen;
-    [SerializeField] Button lifekeys;
+    [SerializeField] TextMeshProUGUI LoseScore;
+    //[SerializeField] Button lifekeys;
 
     [HideInInspector] public float timer;
     [HideInInspector] public bool hasPowerUp;
 
 
     float currentTime = 0;
+
     public static UIManager Instance;
+
 
     private void Awake()
     {
@@ -42,28 +45,31 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        PowerUpImage.gameObject.SetActive(false);
+        //PowerUpImage.gameObject.SetActive(false);
     }
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (hasPowerUp)
+    //        FillTimer(timer);
+    //    else if(currentTime > 0)
+    //        currentTime = 0;
+    //}
+
+    public void testButton()
     {
-        if (hasPowerUp)
-            FillTimer(timer);
-        else if(currentTime > 0)
-            currentTime = 0;
+        Debug.Log("clicked");
     }
-
-
     public void StartGame()
     {
         GameManager.Instance.canInput = true;
     }
     public void UpdateUI(int score, int lifekeys, int highscore)
     {
-        scoreFeedback.PlayFeedbacks();
+        //scoreFeedback.PlayFeedbacks();
         ScoreTxt.text = score.ToString();
-        LifeKeysTxt.text = lifekeys.ToString();
-        //HighScore.text = highscore.ToString();
+        //LifeKeysTxt.text = lifekeys.ToString();
+        HighScore.text = highscore.ToString();
     }
 
     public void ToggleSound()
@@ -94,32 +100,33 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.UseLifeKey();
     }
 
-    public void OpenLoseScreen()
+    public void OpenLoseScreen(int score)
     {
         gameplayscreen.gameObject.SetActive(false);
         LoseScreen.gameObject.SetActive(true);
-        lifekeys.interactable = (DataManager.Instance.GetLifeKeysNum() > 0);
+        LoseScore.text = score.ToString();
+        //lifekeys.interactable = (DataManager.Instance.GetLifeKeysNum() > 0);
     }
 
     public void FillTimer(float time)
     {
         currentTime += Time.deltaTime;
-        PowerUpTimer.fillAmount =  ((currentTime  / time));
+        //PowerUpTimer.fillAmount =  ((currentTime  / time));
     }
 
     public void  startPowerUp(Sprite sprite, float coolDownTime)
     {
-        PowerUpImage.transform.parent.gameObject.SetActive(true);
-        PowerUpImage.gameObject.SetActive(true);
-       PowerUpImage.sprite = sprite;
+       // PowerUpImage.transform.parent.gameObject.SetActive(true);
+       // PowerUpImage.gameObject.SetActive(true);
+       //PowerUpImage.sprite = sprite;
        timer = coolDownTime;
        hasPowerUp = true;
     }
 
     public void endPowerUp()
     {
-        PowerUpImage.transform.parent.gameObject.SetActive(false);
-        PowerUpImage.gameObject.SetActive(false);
+        //PowerUpImage.transform.parent.gameObject.SetActive(false);
+        //PowerUpImage.gameObject.SetActive(false);
        hasPowerUp = false;
     }
 

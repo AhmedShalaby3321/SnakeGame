@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Range(0,100)]
-    public float EnemiesPercentage;
+    [HideInInspector] public int score;
     [HideInInspector] public bool canInput = true;
-    public bool isSpline = true;
+
     public bool firstTime = false;
 
     public static GameManager Instance;
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         canInput = false; 
-        UIManager.Instance.OpenLoseScreen();
+        UIManager.Instance.OpenLoseScreen(score);
     }
 
     public void UseLifeKey()

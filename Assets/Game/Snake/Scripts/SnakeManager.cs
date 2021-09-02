@@ -31,12 +31,11 @@ public class SnakeManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        colors.Colors_Dict.Add(SnakeColors_Enum.Cyan, colors.Cyan);
-        colors.Colors_Dict.Add(SnakeColors_Enum.Green,colors.Green);
-        colors.Colors_Dict.Add(SnakeColors_Enum.Purple,colors.Purple);
-        colors.Colors_Dict.Add(SnakeColors_Enum.Yellow,colors.Yellow);
+        InitColorsDictionary();
     }
+
+   
+
     private void Update()
     {
         //ChangeColor();
@@ -68,6 +67,10 @@ public class SnakeManager : MonoBehaviour
             dynamicBone.ResetAll();
             snakeLength--;
         }
+        else
+        {
+            GameManager.Instance.Lose();
+        }
     }
 
     public void AddBodyPart()
@@ -91,5 +94,21 @@ public class SnakeManager : MonoBehaviour
             InstantiatedBody.ChangeColor(colors.Colors_Dict[currentSnakeColor][1]);
         }
         TailMesh.ChangeColor(colors.Colors_Dict[currentSnakeColor][2]);
+    }
+
+
+    private void InitColorsDictionary()
+    {
+        if (!colors.Colors_Dict.ContainsKey(SnakeColors_Enum.Cyan))
+            colors.Colors_Dict.Add(SnakeColors_Enum.Cyan, colors.Cyan);
+
+        if (!colors.Colors_Dict.ContainsKey(SnakeColors_Enum.Green))
+            colors.Colors_Dict.Add(SnakeColors_Enum.Green, colors.Green);
+
+        if (!colors.Colors_Dict.ContainsKey(SnakeColors_Enum.Purple))
+            colors.Colors_Dict.Add(SnakeColors_Enum.Purple, colors.Purple);
+
+        if (!colors.Colors_Dict.ContainsKey(SnakeColors_Enum.Yellow))
+            colors.Colors_Dict.Add(SnakeColors_Enum.Yellow, colors.Yellow);
     }
 }

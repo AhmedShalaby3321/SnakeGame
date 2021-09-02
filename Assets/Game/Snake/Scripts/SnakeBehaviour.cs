@@ -31,11 +31,18 @@ public class SnakeBehaviour : MonoBehaviour
             {
                 Debug.Log("same color");
                 SnakeManager.Instance.AddBodyPart();
+                GameManager.Instance.score += 10;
+                DataManager.Instance.SetScore(GameManager.Instance.score);
+                DataManager.Instance.UpdateData();
             }
             else
             {
                 Debug.Log("different");
                 SnakeManager.Instance.RemoveBodyPart();
+                GameManager.Instance.score -= 10;
+                if (GameManager.Instance.score < 0) GameManager.Instance.score = 0;
+                DataManager.Instance.SetScore(GameManager.Instance.score);
+                DataManager.Instance.UpdateData();
             }
         }
       
