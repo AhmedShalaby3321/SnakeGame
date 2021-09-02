@@ -33,7 +33,7 @@ public class ScreenTouchInputs : MonoBehaviour
     void Update()
     {
 
-        //if (GameManager.Instance.canInput)
+        if (GameManager.Instance.canInput)
         {
             foreach (Touch touch in Input.touches)
             {

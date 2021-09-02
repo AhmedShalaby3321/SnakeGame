@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Gameplay Screen")]
     [SerializeField] Image gameplayscreen;
-    [SerializeField] TextMeshProUGUI ScoreTxt;
+    [SerializeField] TextMeshProUGUI LevelScore;
+    [SerializeField] TextMeshProUGUI SnakeLengthScore;
+
     //[SerializeField] TextMeshProUGUI LifeKeysTxt;
     //[SerializeField] public Image PowerUpImage;
     //[SerializeField] public Image PowerUpTimer;
@@ -64,11 +66,11 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.canInput = true;
     }
-    public void UpdateUI(int score, int lifekeys, int highscore)
+    public void UpdateUI(int score, int lengthScore, int highscore)
     {
-        //scoreFeedback.PlayFeedbacks();
-        ScoreTxt.text = score.ToString();
-        //LifeKeysTxt.text = lifekeys.ToString();
+        scoreFeedback.PlayFeedbacks();
+        LevelScore.text = score.ToString();
+        SnakeLengthScore.text = lengthScore.ToString();
         HighScore.text = highscore.ToString();
     }
 

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MoreMountains.Feedbacks;
 public class SnakeBehaviour : MonoBehaviour
 {
     //[SerializeField] SkinnedMeshRenderer skmrd;
     //[SerializeField] SnakeManager snake;
-
+    [SerializeField] MMFeedbacks ChangeColorVFX;
     const int maxLives = 5;
     public static int lives;
     public static int score;
@@ -26,24 +27,32 @@ public class SnakeBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Fruit"))
         {
+
             Fruit fruit = other.GetComponent<Fruit>();
             if(SnakeManager.Instance.currentSnakeColor == fruit.currfruitColor)
             {
                 Debug.Log("same color");
                 SnakeManager.Instance.AddBodyPart();
-                GameManager.Instance.score += 10;
-                DataManager.Instance.SetScore(GameManager.Instance.score);
+                GameManager.Instance.levelScore += 10;
+                GameManager.Instance.snakeLengthScore += 1;
+                DataManager.Instance.SetScore(GameManager.Instance.levelScore);
                 DataManager.Instance.UpdateData();
             }
             else
             {
+                ChangeColorVFX.PlayFeedbacks();
+
                 Debug.Log("different");
+                SnakeManager.Instance.ChangeColor(fruit.currfruitColor);
                 SnakeManager.Instance.RemoveBodyPart();
-                GameManager.Instance.score -= 10;
-                if (GameManager.Instance.score < 0) GameManager.Instance.score = 0;
-                DataManager.Instance.SetScore(GameManager.Instance.score);
+                //GameManager.Instance.score -= 10;
+                GameManager.Instance.snakeLengthScore -= 1;
+
+                if (GameManager.Instance.levelScore < 0) GameManager.Instance.levelScore = 0;
+                DataManager.Instance.SetScore(GameManager.Instance.levelScore);
                 DataManager.Instance.UpdateData();
             }
+            Destroy(other.gameObject);
         }
       
 

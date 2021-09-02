@@ -1745,7 +1745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f664e24de892064f9606112519f62bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  levelScore: 0
+  snakeLengthScore: 0
   canInput: 1
   firstTime: 1
 --- !u!1 &1332292161
@@ -2423,7 +2424,11 @@ PrefabInstance:
       propertyPath: m_Exclusions.Array.data[1]
       value: 
       objectReference: {fileID: 1686736717}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5035525646232093961, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+    - {fileID: 8254146690886675222, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+    - {fileID: 6206172252242820240, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+    - {fileID: 6611862649065627309, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
 --- !u!1 &1997825222
 GameObject:

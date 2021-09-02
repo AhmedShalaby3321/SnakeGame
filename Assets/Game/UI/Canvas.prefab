@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4302849749550600146}
   - component: {fileID: 7346920032490161011}
   m_Layer: 5
-  m_Name: Life keys number _ tmp
+  m_Name: Length score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5134,7 +5134,7 @@ GameObject:
   - component: {fileID: 6664330873659332973}
   - component: {fileID: 6393848614418772618}
   m_Layer: 5
-  m_Name: Life keys
+  m_Name: Length
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5681,6 +5681,8 @@ GameObject:
   - component: {fileID: 8568751021675912422}
   - component: {fileID: 205087879468223560}
   - component: {fileID: 1340399973112201839}
+  - component: {fileID: 5218403187354586025}
+  - component: {fileID: 8126857981357295559}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5787,7 +5789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreFeedback: {fileID: 1340399973112201839}
   gameplayscreen: {fileID: 6240212629227811889}
-  ScoreTxt: {fileID: 355759930130522537}
+  LevelScore: {fileID: 355759930130522537}
+  SnakeLengthScore: {fileID: 7346920032490161011}
   HighScore: {fileID: 8062624434960140215}
   AudioListener: {fileID: 0}
   soundToggle: {fileID: 1495762168851329679}
@@ -5807,7 +5810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Feedbacks: []
+  Feedbacks:
+  - {fileID: 5218403187354586025}
+  - {fileID: 8126857981357295559}
   InitializationMode: 2
   SafeMode: 3
   Direction: 0
@@ -5839,6 +5844,168 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   DebugActive: 0
+--- !u!114 &5218403187354586025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568751021675912421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7804b7eebcc3f0a45adf06111f70ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: TMP Font Size
+  Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
+  DebugActive: 0
+  Mode: 0
+  Duration: 0.2
+  StartsOff: 0
+  RelativeValues: 1
+  AllowAdditivePlays: 0
+  DisableOnStop: 0
+  TargetTMPText: {fileID: 355759930130522537}
+  FontSizeCurve:
+    MMTweenDefinitionType: 1
+    MMTweenCurve: 4
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  RemapZero: 0
+  RemapOne: 70
+  InstantFontSize: 0
+--- !u!114 &8126857981357295559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568751021675912421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7804b7eebcc3f0a45adf06111f70ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: TMP Font Size
+  Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
+  DebugActive: 0
+  Mode: 0
+  Duration: 0.2
+  StartsOff: 0
+  RelativeValues: 1
+  AllowAdditivePlays: 0
+  DisableOnStop: 0
+  TargetTMPText: {fileID: 7346920032490161011}
+  FontSizeCurve:
+    MMTweenDefinitionType: 1
+    MMTweenCurve: 4
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.3
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  RemapZero: 0
+  RemapOne: 70
+  InstantFontSize: 0
 --- !u!1 &8740386153026506593
 GameObject:
   m_ObjectHideFlags: 0

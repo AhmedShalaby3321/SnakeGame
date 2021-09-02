@@ -25,7 +25,10 @@ public class SnakeMovement : MonoBehaviour
     }
     private void Update()
     {
-        if(GameManager.Instance.canInput)
-        Move();
+        if (GameManager.Instance.canInput)
+        {
+            Move();
+            snakeSpeed += 0.0001f;
+        }
     }
 }

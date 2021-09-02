@@ -45,7 +45,7 @@ public class DataManager : MonoBehaviour
     }
     private void UpdateUI()
     {
-        UIManager.Instance.UpdateUI(Score, LifeKeys,Gold);
+        UIManager.Instance.UpdateUI(Score, GameManager.Instance.snakeLengthScore, Gold) ;
     }
     public void IncrementScore(int additionalScore)
     {

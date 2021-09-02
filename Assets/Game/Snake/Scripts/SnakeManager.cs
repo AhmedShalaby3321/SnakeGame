@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using MoreMountains.Feedbacks;
 public enum SnakeColors_Enum
 {
     Cyan,
@@ -11,8 +11,10 @@ public enum SnakeColors_Enum
 }
 public class SnakeManager : MonoBehaviour
 {
+    [SerializeField] MMFeedbacks EatingVFX;
     [SerializeField] public SnakeColorsSO colors;
     [SerializeField] Skeleton bodyPrefab;
+    [SerializeField] Skeleton DefaultBody;
     [SerializeField] List<Skeleton> bodyParts = new List<Skeleton>();
     [SerializeField] Transform tail;
     [SerializeField] float tailOffset;
@@ -21,7 +23,6 @@ public class SnakeManager : MonoBehaviour
     [SerializeField] DynamicBone dynamicBone;
     [SerializeField] SkeletonColor HeadMesh;
     [SerializeField] SkeletonColor TailMesh;
-    [SerializeField] SkeletonColor BodyMesh;
 
     private int snakeLength = 1;
 
@@ -34,7 +35,11 @@ public class SnakeManager : MonoBehaviour
         InitColorsDictionary();
     }
 
-   
+    private void Start()
+    {
+        bodyParts.Add(DefaultBody);
+        Debug.Log(bodyParts.Count);
+    }
 
     private void Update()
     {
@@ -59,7 +64,7 @@ public class SnakeManager : MonoBehaviour
     }
     public void RemoveBodyPart()
     {
-        if (bodyParts.Count > minSnakeLength)
+        if (bodyParts.Count-1 > minSnakeLength)
         {
             Destroy(bodyParts[bodyParts.Count - 1].gameObject);
             bodyParts.RemoveAt(bodyParts.Count - 1);
@@ -75,6 +80,7 @@ public class SnakeManager : MonoBehaviour
 
     public void AddBodyPart()
     {
+        EatingVFX.PlayFeedbacks();
         snakeLength++;
         if (bodyParts.Count < maxSnakeLength)
         {
@@ -85,13 +91,17 @@ public class SnakeManager : MonoBehaviour
         }
     }
 
-    public void ChangeColor()
+    public void ChangeColor(SnakeColors_Enum newColor)
     {
+        currentSnakeColor = newColor;
         HeadMesh.ChangeColor(colors.Colors_Dict[currentSnakeColor][0]);
         foreach (var body in bodyParts)
         {
             SkeletonColor InstantiatedBody = body.GetComponent<SkeletonColor>();
-            InstantiatedBody.ChangeColor(colors.Colors_Dict[currentSnakeColor][1]);
+            if (InstantiatedBody != null && InstantiatedBody.SkeletonType == SkeletonColor.skeletonType.Body)
+            {
+                InstantiatedBody.ChangeColor(colors.Colors_Dict[currentSnakeColor][1]); 
+            }
         }
         TailMesh.ChangeColor(colors.Colors_Dict[currentSnakeColor][2]);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkeletonColor : MonoBehaviour
 {
-    enum skeletonType
+    public enum skeletonType
     {
         Head,
         Body,
@@ -12,7 +12,7 @@ public class SkeletonColor : MonoBehaviour
     }
     //[SerializeField] SnakeManager snake;
     [SerializeField] MeshRenderer myMesh;
-    [SerializeField] skeletonType SkeletonType;
+    [SerializeField] public skeletonType SkeletonType;
 
     private void Update()
     {
