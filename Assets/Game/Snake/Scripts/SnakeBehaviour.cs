@@ -35,39 +35,7 @@ public class SnakeBehaviour : MonoBehaviour
             Fruit fruit = other.GetComponent<Fruit>();
             if (SnakeManager.Instance.currentSnakeColor == fruit.currfruitColor)
             {
-
-                if (numberOfCollisions > 0)
-                {
-                    if (numberOfCollisions >= nToAcceptCombos)
-                    {
-                        endTime = Time.time;
-
-                        if ((endTime - startTime) <= comboTimer)
-                        {
-                            appliedComboMultiPlier = comboMultiPlayier;
-                            GameManager.Instance.levelScore += (10 * appliedComboMultiPlier);
-                            numberOfCollisions = 0;
-                            startTime = 0;
-                            endTime = 0;
-                        }
-                        else
-                        {
-                            appliedComboMultiPlier = 1;
-                            GameManager.Instance.levelScore += (10 * appliedComboMultiPlier);
-                            numberOfCollisions = 0;
-                            startTime = 0;
-                            endTime = 0;
-                        }
-                    }
-                    else
-                    {
-                        numberOfCollisions++;
-                    }
-                }
-                else
-                {
-                    startTime = Time.time;
-                }
+                CheckMUltiplier();
                 Debug.Log("same color");
                 SnakeManager.Instance.AddBodyPart();
                 GameManager.Instance.snakeLengthScore += 1;
@@ -137,6 +105,43 @@ public class SnakeBehaviour : MonoBehaviour
         //}
 
     }
+
+    private void CheckMUltiplier()
+    {
+        if (numberOfCollisions > 0)
+        {
+            if (numberOfCollisions >= nToAcceptCombos)
+            {
+                endTime = Time.time;
+
+                if ((endTime - startTime) <= comboTimer)
+                {
+                    appliedComboMultiPlier = comboMultiPlayier;
+                    GameManager.Instance.levelScore += (10 * appliedComboMultiPlier);
+                    numberOfCollisions = 0;
+                    startTime = 0;
+                    endTime = 0;
+                }
+                else
+                {
+                    appliedComboMultiPlier = 1;
+                    GameManager.Instance.levelScore += (10 * appliedComboMultiPlier);
+                    numberOfCollisions = 0;
+                    startTime = 0;
+                    endTime = 0;
+                }
+            }
+            else
+            {
+                numberOfCollisions++;
+            }
+        }
+        else
+        {
+            startTime = Time.time;
+        }
+    }
+
     //private void OnCollisionEnter(Collision collision)
     //{
     //    if (collision.collider.CompareTag("E_Tree"))
