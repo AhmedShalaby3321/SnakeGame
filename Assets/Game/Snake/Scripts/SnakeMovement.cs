@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnakeMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] List<GameObject> WalkingParticles;
     public bool canHaveInputs;
     [SerializeField] Transform fakeHead;
     [SerializeField] float snakeSpeed;
@@ -27,8 +28,21 @@ public class SnakeMovement : MonoBehaviour
     {
         if (GameManager.Instance.canInput)
         {
+            if (!WalkingParticles[0].activeSelf)
+            {
+
+                WalkingParticles[0].SetActive(true);
+                WalkingParticles[1].SetActive(true);
+
+            }
             Move();
             snakeSpeed += 0.0001f;
+        }
+        else if (WalkingParticles[0].activeSelf)
+        {
+            WalkingParticles[0].SetActive(false);
+            WalkingParticles[1].SetActive(false);
+
         }
     }
 }

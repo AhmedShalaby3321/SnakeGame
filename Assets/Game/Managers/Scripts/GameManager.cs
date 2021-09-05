@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int levelScore;
     [HideInInspector] public int snakeLengthScore;
 
-    [HideInInspector] public bool canInput = true;
+    [HideInInspector] public bool canInput = false;
 
     public bool firstTime = false;
 

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &62329468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3900973507977956296, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+  m_PrefabInstance: {fileID: 1902231388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &82888782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1702,6 +1707,11 @@ Transform:
   m_Father: {fileID: 1332292163}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1171741544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3869821684855090570, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+  m_PrefabInstance: {fileID: 1902231388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1225693143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2326,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3869821684855090570, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900973507977956296, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4241482644705081217, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2328,6 +2346,18 @@ PrefabInstance:
       propertyPath: canHaveInputs
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4241482644705081217, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+      propertyPath: WalkingParticles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241482644705081217, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+      propertyPath: WalkingParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1171741544}
+    - target: {fileID: 4241482644705081217, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
+      propertyPath: WalkingParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 62329468}
     - target: {fileID: 4241482644705081220, guid: fe4dedaaff6f2e74e9723af13812e6e3, type: 3}
       propertyPath: m_RootOrder
       value: 0
