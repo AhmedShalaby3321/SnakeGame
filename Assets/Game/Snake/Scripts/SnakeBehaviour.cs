@@ -14,8 +14,13 @@ public class SnakeBehaviour : MonoBehaviour
     int collisionCounter;
     int maxCounter = 5;
 
+    float comboTimer = 2f;
+    float startTime, endTime;
+    int numberOfCollisions;
+    int nToAcceptCombos = 3;
     //public Game_Manager game_Manager;
-
+    int comboMultiPlayier = 2;
+    int appliedComboMultiPlier;
     void Start()
     {
         lives = maxLives;
@@ -25,15 +30,46 @@ public class SnakeBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Fruit"))
+        if (other.CompareTag("Fruit"))
         {
-
             Fruit fruit = other.GetComponent<Fruit>();
-            if(SnakeManager.Instance.currentSnakeColor == fruit.currfruitColor)
+            if (SnakeManager.Instance.currentSnakeColor == fruit.currfruitColor)
             {
+
+                if (numberOfCollisions > 0)
+                {
+                    if (numberOfCollisions >= nToAcceptCombos)
+                    {
+                        endTime = Time.time;
+
+                        if ((endTime - startTime) <= comboTimer)
+                        {
+                            appliedComboMultiPlier = comboMultiPlayier;
+                            GameManager.Instance.levelScore += (10 * appliedComboMultiPlier);
+                            numberOfCollisions = 0;
+                            startTime = 0;
+                            endTime = 0;
+                        }
+                        else
+                        {
+                            appliedComboMultiPlier = 1;
+                            GameManager.Instance.levelScore += (10 * appliedComboMultiPlier);
+                            numberOfCollisions = 0;
+                            startTime = 0;
+                            endTime = 0;
+                        }
+                    }
+                    else
+                    {
+                        numberOfCollisions++;
+                    }
+                }
+                else
+                {
+                    startTime = Time.time;
+                }
                 Debug.Log("same color");
                 SnakeManager.Instance.AddBodyPart();
-                GameManager.Instance.levelScore += 10;
                 GameManager.Instance.snakeLengthScore += 1;
                 DataManager.Instance.SetScore(GameManager.Instance.levelScore);
                 DataManager.Instance.UpdateData();
@@ -54,7 +90,7 @@ public class SnakeBehaviour : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
-      
+
 
         //if (other.CompareTag("E_Bomb"))
         //{
