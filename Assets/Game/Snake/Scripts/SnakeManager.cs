@@ -38,21 +38,20 @@ public class SnakeManager : MonoBehaviour
     private void Start()
     {
         bodyParts.Add(DefaultBody);
-        Debug.Log(bodyParts.Count);
     }
 
-    private void Update()
-    {
-        //ChangeColor();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddBodyPart();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            RemoveBodyPart();
-        }
-    }
+    //private void Update()
+    //{
+    //    //ChangeColor();
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        AddBodyPart();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.W))
+    //    {
+    //        RemoveBodyPart();
+    //    }
+    //}
     public void SetTailPos()
     {
         if (bodyParts != null)

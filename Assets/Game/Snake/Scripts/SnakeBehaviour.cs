@@ -14,7 +14,7 @@ public class SnakeBehaviour : MonoBehaviour
     int collisionCounter;
     int maxCounter = 5;
 
-    float comboTimer = 2f;
+    float comboTimer = 4f;
     float startTime, endTime;
     int numberOfCollisions;
     int nToAcceptCombos = 3;
@@ -35,10 +35,13 @@ public class SnakeBehaviour : MonoBehaviour
             Fruit fruit = other.GetComponent<Fruit>();
             if (SnakeManager.Instance.currentSnakeColor == fruit.currfruitColor)
             {
+                numberOfCollisions++;
                 CheckMUltiplier();
-                Debug.Log("same color");
+                //Debug.Log("same color");
                 SnakeManager.Instance.AddBodyPart();
                 GameManager.Instance.snakeLengthScore += 1;
+               
+
                 DataManager.Instance.SetScore(GameManager.Instance.levelScore);
                 DataManager.Instance.UpdateData();
             }
@@ -46,7 +49,7 @@ public class SnakeBehaviour : MonoBehaviour
             {
                 ChangeColorVFX.PlayFeedbacks();
 
-                Debug.Log("different");
+                //Debug.Log("different");
                 SnakeManager.Instance.ChangeColor(fruit.currfruitColor);
                 SnakeManager.Instance.RemoveBodyPart();
                 //GameManager.Instance.score -= 10;
@@ -121,6 +124,7 @@ public class SnakeBehaviour : MonoBehaviour
                     numberOfCollisions = 0;
                     startTime = 0;
                     endTime = 0;
+                    Debug.Log("in combo time");
                 }
                 else
                 {
@@ -129,12 +133,13 @@ public class SnakeBehaviour : MonoBehaviour
                     numberOfCollisions = 0;
                     startTime = 0;
                     endTime = 0;
+                    Debug.Log("outside combo time");
                 }
             }
-            else
-            {
-                numberOfCollisions++;
-            }
+            //else
+            //{
+            //    numberOfCollisions++;
+            //}
         }
         else
         {
